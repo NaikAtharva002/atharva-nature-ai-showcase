@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Mail, Linkedin, Instagram, MapPin } from "lucide-react";
@@ -61,7 +62,7 @@ const Contact = () => {
                 <Button 
                   variant="outline" 
                   className="w-full justify-start gap-3 h-12 hover:bg-primary hover:text-primary-foreground transition-all"
-                  onClick={() => window.open('#', '_blank')}
+                  onClick={() => window.open('https://www.instagram.com/atharvadhanraj?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', '_blank')}
                 >
                   <Instagram className="h-5 w-5" />
                   Instagram Profile
