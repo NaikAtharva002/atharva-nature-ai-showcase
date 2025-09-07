@@ -22,9 +22,9 @@ const TypewriterText = ({ text, delay = 100, className = "" }: TypewriterTextPro
   }, [currentIndex, delay, text]);
 
   return (
-    <span className={className}>
+    <span className={`font-semibold text-foreground drop-shadow-lg ${className}`}>
       {displayText}
-      <span className="animate-pulse">|</span>
+      <span className="animate-pulse text-primary">|</span>
     </span>
   );
 };

@@ -63,10 +63,11 @@ const Header = () => {
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6">
             Atharva Naik
           </h1>
-          <div className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto min-h-[60px] flex items-center justify-center">
+          <div className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto min-h-[60px] flex items-center justify-center">
             <TypewriterText 
               text="Aspiring AI & ML Engineer | Tech Enthusiast | Innovator"
               delay={80}
+              className="text-shadow-lg bg-background/20 px-4 py-2 rounded-lg backdrop-blur-sm"
             />
           </div>
           <Button 
