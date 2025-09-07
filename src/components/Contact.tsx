@@ -62,7 +62,15 @@ const Contact = () => {
                 <Button 
                   variant="outline" 
                   className="w-full justify-start gap-3 h-12 hover:bg-primary hover:text-primary-foreground transition-all"
-                  onClick={() => window.open('https://www.instagram.com/atharvadhanraj?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', '_blank')}
+                  onClick={() => {
+                    const link = document.createElement('a');
+                    link.href = 'https://www.instagram.com/atharvadhanraj?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==';
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
                 >
                   <Instagram className="h-5 w-5" />
                   Instagram Profile
