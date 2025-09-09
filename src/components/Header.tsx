@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
 import TypewriterText from "@/components/TypewriterText";
+import MobileNav from "@/components/MobileNav";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const scrollToSection = (sectionId: string) => {
@@ -11,42 +13,44 @@ const Header = () => {
   return (
     <header className="relative min-h-screen flex flex-col">
       {/* Navigation */}
-      <nav className="fixed top-1 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <motion.nav 
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        className="fixed top-1 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"
+      >
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-xl font-bold text-foreground">Atharva Naik</h1>
+            <motion.h1 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-xl font-bold text-foreground"
+            >
+              Atharva Naik
+            </motion.h1>
             <div className="flex items-center space-x-4">
               <div className="hidden md:flex items-center space-x-8">
-                <button 
-                  onClick={() => scrollToSection('home')}
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Home
-                </button>
-                <button 
-                  onClick={() => scrollToSection('about')}
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  About
-                </button>
-                <button 
-                  onClick={() => scrollToSection('certifications')}
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Certifications
-                </button>
-                <button 
-                  onClick={() => scrollToSection('contact')}
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Contact
-                </button>
+                {['home', 'about', 'certifications', 'contact'].map((section, index) => (
+                  <motion.button
+                    key={section}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + index * 0.1 }}
+                    onClick={() => scrollToSection(section)}
+                    className="text-muted-foreground hover:text-primary transition-colors relative group"
+                  >
+                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                  </motion.button>
+                ))}
               </div>
               <ThemeToggle />
+              <MobileNav />
             </div>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Hero Section */}
       <div 
@@ -60,23 +64,39 @@ const Header = () => {
         }}
       >
         <div className="text-center px-6 py-20">
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="text-5xl md:text-7xl font-bold text-foreground mb-6"
+          >
             Atharva Naik
-          </h1>
-          <div className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto min-h-[60px] flex items-center justify-center">
+          </motion.h1>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto min-h-[60px] flex items-center justify-center"
+          >
             <TypewriterText 
               text="Aspiring AI & ML Engineer | Tech Enthusiast | Innovator"
               delay={80}
               className="text-shadow-lg bg-background/20 px-4 py-2 rounded-lg backdrop-blur-sm"
             />
-          </div>
-          <Button 
-            size="lg"
-            className="bg-gradient-hero hover:shadow-hover transition-all duration-300 transform hover:scale-105"
-            onClick={() => window.open('https://www.linkedin.com/in/atharva-naik-', '_blank')}
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.6 }}
           >
-            Connect with me on LinkedIn
-          </Button>
+            <Button 
+              size="lg"
+              className="bg-gradient-hero hover:shadow-hover transition-all duration-300 transform hover:scale-105"
+              onClick={() => window.open('https://www.linkedin.com/in/atharva-naik-', '_blank')}
+            >
+              Connect with me on LinkedIn
+            </Button>
+          </motion.div>
         </div>
       </div>
     </header>

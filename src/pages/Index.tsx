@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import About from "@/components/About";
-import Certifications from "@/components/Certifications";
-import Achievements from "@/components/Achievements";
+import InteractiveSkills from "@/components/InteractiveSkills";
+import BentoGrid from "@/components/BentoGrid";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -12,8 +12,8 @@ const Index = () => {
       <ScrollProgress />
       <Header />
       <About />
-      <Certifications />
-      <Achievements />
+      <InteractiveSkills />
+      <BentoGrid />
       <Contact />
       <Footer />
     </div>
