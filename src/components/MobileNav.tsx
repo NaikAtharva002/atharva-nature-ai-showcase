@@ -48,10 +48,10 @@ const MobileNav = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 h-full w-80 bg-card border-l border-border z-50 md:hidden"
+              className="fixed right-0 top-0 h-full w-72 sm:w-80 bg-card border-l border-border z-50 md:hidden shadow-2xl"
             >
-              <div className="flex flex-col h-full pt-20 px-6">
-                <div className="space-y-4">
+              <div className="flex flex-col h-full pt-16 sm:pt-20 px-4 sm:px-6">
+                <div className="space-y-2 sm:space-y-4">
                   {menuItems.map((item, index) => (
                     <motion.button
                       key={item.id}
@@ -59,7 +59,7 @@ const MobileNav = () => {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
                       onClick={() => scrollToSection(item.id)}
-                      className="block w-full text-left py-4 px-6 text-lg font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all"
+                      className="block w-full text-left py-3 sm:py-4 px-4 sm:px-6 text-base sm:text-lg font-medium text-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all"
                     >
                       {item.label}
                     </motion.button>
