@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import About from "@/components/About";
 import InteractiveSkills from "@/components/InteractiveSkills";
+import WorkExperience from "@/components/WorkExperience";
 import BentoGrid from "@/components/BentoGrid";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -13,6 +14,7 @@ const Index = () => {
       <Header />
       <About />
       <InteractiveSkills />
+      <WorkExperience />
       <BentoGrid />
       <Contact />
       <Footer />
