@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Building2, Calendar, CheckCircle } from "lucide-react";
+import { Calendar, CheckCircle } from "lucide-react";
 import ScrollAnimation from "./ScrollAnimation";
+import companyIcon from "@/assets/company-icon.webp";
 
 const WorkExperience = () => {
   const experience = {
@@ -49,7 +50,7 @@ const WorkExperience = () => {
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                      <Building2 className="w-6 h-6 text-primary" />
+                      <img src={companyIcon} alt="Study Together" className="w-6 h-6" />
                     </div>
                     <div>
                       <CardTitle className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
