@@ -15,7 +15,7 @@ const WorkExperience = () => {
       period: "Sep 2025 - Present",
       location: "Bhopal · On-site",
       logo: uxClubLogo,
-      accomplishments: "Contributing to design initiatives and collaborating with team members to enhance user experience practices within the club."
+      accomplishments: "Serving as a Core Member in the Event Management Team, organizing and coordinating design-focused events, workshops, and initiatives to foster UX learning and community engagement."
     },
     {
       company: "Study Together",
