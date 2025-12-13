@@ -10,7 +10,7 @@ const WorkExperience = () => {
   const experiences = [
     {
       company: "UX Club",
-      title: "Core Member",
+      title: "Core Member At event managemet",
       type: "Full-time",
       period: "Sep 2025 - Present",
       location: "Bhopal · On-site",
