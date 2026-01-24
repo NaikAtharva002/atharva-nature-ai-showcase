@@ -2,116 +2,137 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Mountain/Alpine Theme Design System - All colors in HSL */
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 158 25% 15%;
+    /* Mountain-inspired color palette */
+    --background: 210 25% 97%;
+    --foreground: 215 45% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 158 25% 15%;
+    --card-foreground: 215 45% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 158 25% 15%;
+    --popover-foreground: 215 45% 15%;
 
-    --primary: 158 64% 52%;
-    --primary-foreground: 0 0% 98%;
+    /* Deep Mountain Blue */
+    --primary: 215 60% 24%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 142 76% 36%;
-    --secondary-foreground: 0 0% 98%;
+    /* Alpine Green */
+    --secondary: 150 40% 30%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 155 25% 94%;
-    --muted-foreground: 158 15% 50%;
+    --muted: 210 30% 94%;
+    --muted-foreground: 215 25% 45%;
 
-    --accent: 142 76% 36%;
-    --accent-foreground: 0 0% 98%;
+    /* Sunset Orange accent */
+    --accent: 30 85% 55%;
+    --accent-foreground: 215 45% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 155 25% 88%;
-    --input: 155 25% 88%;
-    --ring: 158 64% 52%;
+    --border: 210 25% 88%;
+    --input: 210 25% 88%;
+    --ring: 215 60% 24%;
 
     --radius: 0.75rem;
 
-    /* Nature-inspired gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(158 64% 52%) 0%, hsl(142 76% 36%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(155 25% 96%) 100%);
-    --gradient-nature: linear-gradient(180deg, hsl(158 64% 52% / 0.1) 0%, hsl(142 76% 36% / 0.05) 100%);
+    /* Mountain-themed gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(215 60% 24%) 0%, hsl(150 40% 30%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 30% 97%) 100%);
+    --gradient-nature: linear-gradient(180deg, hsl(215 60% 24% / 0.05) 0%, hsl(150 40% 30% / 0.03) 100%);
+    --gradient-mountain: linear-gradient(to bottom, hsl(215 60% 24% / 0.85), hsl(150 40% 30% / 0.75));
+    --gradient-sunset: linear-gradient(135deg, hsl(30 85% 55% / 0.2) 0%, hsl(215 60% 24% / 0.1) 100%);
 
-    /* Shadows */
-    --shadow-soft: 0 4px 20px hsl(158 64% 52% / 0.1);
-    --shadow-card: 0 8px 32px hsl(158 25% 15% / 0.08);
-    --shadow-hover: 0 12px 40px hsl(158 64% 52% / 0.15);
+    /* Glacier Blue for light elements */
+    --glacier: 200 80% 92%;
+    --glacier-foreground: 215 45% 15%;
+
+    /* Forest Pine for footer */
+    --forest: 150 50% 20%;
+    --forest-foreground: 210 40% 98%;
+
+    /* Shadows with mountain blue tint */
+    --shadow-soft: 0 4px 20px hsl(215 60% 24% / 0.08);
+    --shadow-card: 0 8px 32px hsl(215 45% 15% / 0.1);
+    --shadow-hover: 0 16px 48px hsl(215 60% 24% / 0.15);
+    --shadow-glow: 0 0 40px hsl(30 85% 55% / 0.2);
 
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-    --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 98%;
-
+    --sidebar-background: 210 25% 97%;
     --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
+    --sidebar-primary: 215 60% 24%;
     --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 210 30% 95%;
+    --sidebar-accent-foreground: 215 45% 15%;
+    --sidebar-border: 210 25% 88%;
+    --sidebar-ring: 215 60% 24%;
   }
 
   .dark {
-    --background: 158 25% 8%;
-    --foreground: 155 25% 95%;
+    --background: 215 45% 8%;
+    --foreground: 210 30% 95%;
 
-    --card: 158 25% 10%;
-    --card-foreground: 155 25% 95%;
+    --card: 215 40% 12%;
+    --card-foreground: 210 30% 95%;
 
-    --popover: 158 25% 10%;
-    --popover-foreground: 155 25% 95%;
+    --popover: 215 40% 12%;
+    --popover-foreground: 210 30% 95%;
 
-    --primary: 158 64% 62%;
-    --primary-foreground: 158 25% 8%;
+    /* Deep Mountain Blue - lighter in dark mode */
+    --primary: 200 70% 60%;
+    --primary-foreground: 215 45% 8%;
 
-    --secondary: 142 76% 46%;
-    --secondary-foreground: 155 25% 95%;
+    /* Alpine Green - lighter in dark mode */
+    --secondary: 150 50% 45%;
+    --secondary-foreground: 210 30% 95%;
 
-    --muted: 158 25% 15%;
-    --muted-foreground: 155 15% 65%;
+    --muted: 215 40% 18%;
+    --muted-foreground: 210 20% 65%;
 
-    --accent: 142 76% 46%;
-    --accent-foreground: 155 25% 95%;
+    /* Sunset Orange - brighter in dark mode */
+    --accent: 30 90% 60%;
+    --accent-foreground: 215 45% 8%;
 
     --destructive: 0 62.8% 50.6%;
-    --destructive-foreground: 155 25% 95%;
+    --destructive-foreground: 210 30% 95%;
 
-    --border: 158 25% 20%;
-    --input: 158 25% 20%;
-    --ring: 158 64% 62%;
+    --border: 215 35% 22%;
+    --input: 215 35% 22%;
+    --ring: 200 70% 60%;
 
-    /* Dark mode nature gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(158 64% 45%) 0%, hsl(142 76% 30%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(158 25% 10%) 0%, hsl(158 25% 12%) 100%);
-    --gradient-nature: linear-gradient(180deg, hsl(158 64% 25% / 0.2) 0%, hsl(142 76% 20% / 0.1) 100%);
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Dark mode mountain gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(200 70% 50%) 0%, hsl(150 50% 40%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(215 40% 12%) 0%, hsl(215 40% 15%) 100%);
+    --gradient-nature: linear-gradient(180deg, hsl(200 70% 40% / 0.15) 0%, hsl(150 50% 35% / 0.08) 100%);
+    --gradient-mountain: linear-gradient(to bottom, hsl(215 45% 8% / 0.9), hsl(215 40% 12% / 0.85));
+    --gradient-sunset: linear-gradient(135deg, hsl(30 90% 50% / 0.15) 0%, hsl(200 70% 50% / 0.1) 100%);
+
+    --glacier: 200 60% 25%;
+    --glacier-foreground: 210 30% 95%;
+
+    --forest: 150 40% 15%;
+    --forest-foreground: 210 30% 95%;
+
+    --shadow-soft: 0 4px 20px hsl(0 0% 0% / 0.3);
+    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.4);
+    --shadow-hover: 0 16px 48px hsl(200 70% 50% / 0.2);
+    --shadow-glow: 0 0 40px hsl(30 90% 50% / 0.25);
+
+    --sidebar-background: 215 45% 8%;
+    --sidebar-foreground: 210 30% 95%;
+    --sidebar-primary: 200 70% 60%;
+    --sidebar-primary-foreground: 215 45% 8%;
+    --sidebar-accent: 215 40% 18%;
+    --sidebar-accent-foreground: 210 30% 95%;
+    --sidebar-border: 215 35% 22%;
+    --sidebar-ring: 200 70% 60%;
   }
 }
 
@@ -122,20 +143,74 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
   
   .text-shadow-lg {
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.3);
   }
 
-  /* Custom utility classes for enhanced interactions */
+  .text-shadow-hero {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Glassmorphism utilities */
+  .glass {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+  }
+
+  .glass-strong {
+    @apply bg-card/95 backdrop-blur-2xl border border-border/60;
+  }
+
+  /* Mountain hover effects */
   .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.4s ease;
   }
   
   .hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Peak underline animation */
+  .peak-underline {
+    position: relative;
+  }
+
+  .peak-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)));
+    border-radius: 3px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateX(-50%);
+  }
+
+  .peak-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Topographic pattern background */
+  .topo-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 10 Q 70 30 50 50 Q 30 70 50 90' stroke='%231a365d' stroke-width='0.5' fill='none' opacity='0.08'/%3E%3Cpath d='M20 20 Q 40 40 20 60 Q 0 80 20 100' stroke='%231a365d' stroke-width='0.5' fill='none' opacity='0.06'/%3E%3Cpath d='M80 0 Q 100 20 80 40 Q 60 60 80 80' stroke='%231a365d' stroke-width='0.5' fill='none' opacity='0.06'/%3E%3C/svg%3E");
+    background-size: 100px 100px;
+  }
+
+  /* Mountain silhouette divider */
+  .mountain-divider {
+    position: relative;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 100%);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,120 L0,60 L150,90 L300,30 L450,75 L600,15 L750,60 L900,30 L1050,75 L1200,45 L1200,120 Z'/%3E%3C/svg%3E");
+    mask-size: 100% 100%;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,120 L0,60 L150,90 L300,30 L450,75 L600,15 L750,60 L900,30 L1050,75 L1200,45 L1200,120 Z'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
   }
 
   /* Smooth scroll behavior */
@@ -143,27 +218,38 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
 
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   /* Mobile optimizations */
   @media (max-width: 768px) {
     .text-shadow-lg {
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
     }
     
-    /* Prevent horizontal scroll on mobile */
     body {
       overflow-x: hidden;
     }
     
-    /* Improve readability on mobile */
     .mobile-text-contrast {
-      background: rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(4px);
+      background: rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(8px);
     }
   }
 
-  /* Custom scrollbar */
+  /* Custom scrollbar - mountain themed */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
@@ -171,11 +257,55 @@ All colors MUST be HSL.
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary));
-    border-radius: 3px;
+    background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--secondary)));
+    border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--primary) / 0.8);
+    background: linear-gradient(180deg, hsl(var(--primary) / 0.9), hsl(var(--secondary) / 0.9));
   }
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--accent) / 0.5);
+  }
+}
+
+@keyframes snow-fall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
 }
