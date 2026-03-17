@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Mail, Linkedin, Instagram, MapPin } from "lucide-react";
+import { Mail, Linkedin, Instagram, MapPin, Github } from "lucide-react";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import { motion } from "framer-motion";
 
@@ -104,6 +104,17 @@ const Contact = () => {
                     >
                       <Instagram className="h-5 w-5 group-hover:scale-110 transition-transform" />
                       Instagram Profile
+                    </Button>
+                  </motion.div>
+                  
+                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                    <Button 
+                      variant="outline" 
+                      className="w-full justify-start gap-3 h-12 hover:bg-primary hover:text-primary-foreground transition-all group"
+                      onClick={() => window.open('https://github.com/NaikAtharva002', '_blank')}
+                    >
+                      <Github className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                      GitHub Profile
                     </Button>
                   </motion.div>
                   

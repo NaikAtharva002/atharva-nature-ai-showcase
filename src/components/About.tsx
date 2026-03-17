@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ExternalLink, Linkedin, Instagram } from "lucide-react";
+import { ExternalLink, Linkedin, Instagram, Github } from "lucide-react";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import { motion } from "framer-motion";
 
@@ -37,6 +37,18 @@ const About = () => {
                     >
                       <Linkedin className="h-4 w-4 group-hover:scale-110 transition-transform" />
                       LinkedIn
+                      <ExternalLink className="h-3 w-3" />
+                    </Button>
+                  </motion.div>
+                  
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <Button 
+                      variant="outline" 
+                      className="flex items-center gap-2 hover:bg-primary hover:text-primary-foreground transition-all group"
+                      onClick={() => window.open('https://github.com/NaikAtharva002', '_blank')}
+                    >
+                      <Github className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                      GitHub
                       <ExternalLink className="h-3 w-3" />
                     </Button>
                   </motion.div>

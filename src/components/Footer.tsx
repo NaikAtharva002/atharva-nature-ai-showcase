@@ -1,4 +1,4 @@
-import { Heart } from "lucide-react";
+import { Heart, Github, Linkedin, Instagram } from "lucide-react";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import { motion } from "framer-motion";
 
@@ -7,6 +7,26 @@ const Footer = () => {
     <footer className="py-12 px-6 bg-background border-t border-border">
       <div className="max-w-6xl mx-auto">
         <ScrollAnimation className="text-center">
+          <div className="flex items-center justify-center gap-6 mb-6">
+            {[
+              { icon: Github, href: 'https://github.com/NaikAtharva002', label: 'GitHub' },
+              { icon: Linkedin, href: 'https://www.linkedin.com/in/atharva-naik-', label: 'LinkedIn' },
+              { icon: Instagram, href: 'https://www.instagram.com/atharvadhanraj', label: 'Instagram' },
+            ].map(({ icon: Icon, href, label }) => (
+              <motion.a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                whileHover={{ scale: 1.2, y: -2 }}
+                whileTap={{ scale: 0.9 }}
+                className="p-2 text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Icon className="h-5 w-5" />
+              </motion.a>
+            ))}
+          </div>
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="inline-block"
@@ -17,7 +37,7 @@ const Footer = () => {
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
               >
-                <Heart className="h-4 w-4 text-red-500 fill-current" />
+                <Heart className="h-4 w-4 text-destructive fill-current" />
               </motion.span>
               and Code
             </p>
