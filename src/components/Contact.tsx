@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Mail, Linkedin, Instagram, MapPin } from "lucide-react";
+import { Mail, Linkedin, Instagram, MapPin, Github } from "lucide-react";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import { motion } from "framer-motion";
 

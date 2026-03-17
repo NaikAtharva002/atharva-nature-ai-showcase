@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ExternalLink, Linkedin, Instagram } from "lucide-react";
+import { ExternalLink, Linkedin, Instagram, Github } from "lucide-react";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import { motion } from "framer-motion";
 

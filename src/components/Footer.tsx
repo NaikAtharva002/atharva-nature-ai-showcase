@@ -1,4 +1,4 @@
-import { Heart } from "lucide-react";
+import { Heart, Github, Linkedin, Instagram } from "lucide-react";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import { motion } from "framer-motion";
 
