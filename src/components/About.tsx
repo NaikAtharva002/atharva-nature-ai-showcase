@@ -45,6 +45,18 @@ const About = () => {
                     <Button 
                       variant="outline" 
                       className="flex items-center gap-2 hover:bg-primary hover:text-primary-foreground transition-all group"
+                      onClick={() => window.open('https://github.com/NaikAtharva002', '_blank')}
+                    >
+                      <Github className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                      GitHub
+                      <ExternalLink className="h-3 w-3" />
+                    </Button>
+                  </motion.div>
+                  
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <Button 
+                      variant="outline" 
+                      className="flex items-center gap-2 hover:bg-primary hover:text-primary-foreground transition-all group"
                       onClick={() => {
                         const link = document.createElement('a');
                         link.href = 'https://www.instagram.com/atharvadhanraj?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==';

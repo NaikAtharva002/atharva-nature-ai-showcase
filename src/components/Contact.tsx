@@ -107,6 +107,17 @@ const Contact = () => {
                     </Button>
                   </motion.div>
                   
+                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                    <Button 
+                      variant="outline" 
+                      className="w-full justify-start gap-3 h-12 hover:bg-primary hover:text-primary-foreground transition-all group"
+                      onClick={() => window.open('https://github.com/NaikAtharva002', '_blank')}
+                    >
+                      <Github className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                      GitHub Profile
+                    </Button>
+                  </motion.div>
+                  
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Button 
                       className="w-full h-12 bg-gradient-hero hover:shadow-hover transition-all duration-300 transform hover:scale-105 mt-6"
