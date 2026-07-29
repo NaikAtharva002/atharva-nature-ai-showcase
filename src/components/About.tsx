@@ -1,103 +1,90 @@
 import { motion } from "framer-motion";
 import ScrollAnimation from "@/components/ScrollAnimation";
+import { GraduationCap, Award, Cpu, Sparkles } from "lucide-react";
 
 const About = () => {
   return (
-    <section
-      id="about"
-      className="py-28 px-6 md:px-12"
-      style={{ backgroundColor: "#F2F4F3" }}
-    >
+    <section id="about" className="py-24 px-4 sm:px-8 bg-background border-t border-border/40">
       <div className="max-w-5xl mx-auto">
-
-        {/* Section label */}
         <ScrollAnimation>
-          <p className="label-caps text-[#A9927D] mb-12">Identity</p>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-2 h-2 rounded-full bg-primary inline-block" />
+            <p className="label-caps text-muted-foreground">Identity &amp; Background</p>
+          </div>
+          <h2 className="font-editorial text-4xl sm:text-5xl text-foreground font-light mb-12">
+            About Me
+          </h2>
         </ScrollAnimation>
 
-        {/* Two-column editorial grid */}
-        <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
+        <div className="grid md:grid-cols-12 gap-12 items-start">
+          {/* Main Bio Text */}
+          <div className="md:col-span-7 space-y-6">
+            <ScrollAnimation delay={0.1}>
+              <p className="text-foreground text-lg sm:text-xl font-light leading-relaxed">
+                I am a B.Tech Computer Science student at VIT Bhopal University, specializing in Artificial Intelligence and Machine Learning.
+              </p>
+            </ScrollAnimation>
 
-          {/* Left — name + identity tags */}
-          <ScrollAnimation>
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-              <h2
-                className="font-editorial text-[#0A0908] mb-8"
-                style={{ fontSize: "clamp(2.2rem, 5vw, 3.6rem)", fontWeight: 300, lineHeight: 1.05 }}
-              >
-                Atharva<br />Naik
-              </h2>
+            <ScrollAnimation delay={0.2}>
+              <p className="text-muted-foreground text-base font-light leading-relaxed">
+                Driven by curiosity for both cognitive algorithms and hardware-level automation, I spend my time building machine learning prototypes, embedded systems, and managing high-impact design events as Co-Lead of Event Management at UX Club.
+              </p>
+            </ScrollAnimation>
 
-              {/* Education metadata */}
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <span
-                    className="px-3 py-1 text-[#0A0908] label-caps"
-                    style={{ border: "1px solid rgba(10,9,8,0.15)", fontSize: "0.6rem" }}
-                  >
-                    VIT Bhopal University
-                  </span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span
-                    className="px-3 py-1 text-[#5E503F] label-caps"
-                    style={{ border: "1px solid rgba(94,80,63,0.3)", fontSize: "0.6rem" }}
-                  >
-                    B.Tech · Computer Science
-                  </span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span
-                    className="px-3 py-1 text-[#49111C] label-caps"
-                    style={{ border: "1px solid rgba(73,17,28,0.3)", fontSize: "0.6rem" }}
-                  >
-                    AI &amp; Machine Learning
-                  </span>
+            <ScrollAnimation delay={0.3}>
+              <p className="text-muted-foreground text-base font-light leading-relaxed">
+                My approach combines analytical precision with user-centric design — striving to make complex AI capabilities feel natural and accessible.
+              </p>
+            </ScrollAnimation>
+          </div>
+
+          {/* Quick Highlight Cards */}
+          <div className="md:col-span-5 space-y-4">
+            <ScrollAnimation delay={0.2}>
+              <div className="p-5 rounded-xl border border-border/60 bg-card/60 backdrop-blur-sm card-lift">
+                <div className="flex items-start gap-4">
+                  <div className="p-2.5 rounded-lg bg-primary/10 text-primary">
+                    <GraduationCap className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-foreground text-sm mb-1">Education</h3>
+                    <p className="text-xs text-muted-foreground">B.Tech Computer Science (AI &amp; ML)</p>
+                    <p className="text-[11px] text-muted-foreground/70 mt-0.5">VIT Bhopal University</p>
+                  </div>
                 </div>
               </div>
-            </motion.div>
-          </ScrollAnimation>
+            </ScrollAnimation>
 
-          {/* Right — bio paragraph */}
-          <ScrollAnimation delay={0.15}>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-            >
-              <p
-                className="text-[#0A0908] leading-relaxed mb-6"
-                style={{ fontFamily: "'Inter', sans-serif", fontSize: "1.05rem", fontWeight: 300, lineHeight: 1.75 }}
-              >
-                I'm a Computer Science student at VIT Bhopal, specialising in Artificial
-                Intelligence and Machine Learning. Outside the classroom, I lead event
-                management at UX Club — coordinating design workshops, competitions, and
-                community initiatives that bridge technology and human experience.
-              </p>
+            <ScrollAnimation delay={0.3}>
+              <div className="p-5 rounded-xl border border-border/60 bg-card/60 backdrop-blur-sm card-lift">
+                <div className="flex items-start gap-4">
+                  <div className="p-2.5 rounded-lg bg-primary/10 text-primary">
+                    <Award className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-foreground text-sm mb-1">Leadership</h3>
+                    <p className="text-xs text-muted-foreground">Co-Lead, Event Management</p>
+                    <p className="text-[11px] text-muted-foreground/70 mt-0.5">UX Club, VIT Bhopal</p>
+                  </div>
+                </div>
+              </div>
+            </ScrollAnimation>
 
-              <p
-                className="text-[#5E503F] leading-relaxed"
-                style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", fontWeight: 300, lineHeight: 1.7 }}
-              >
-                I'm drawn to the intersection of systems and people — building things that
-                are useful, intentional, and a little bit beautiful.
-              </p>
-            </motion.div>
-          </ScrollAnimation>
-
+            <ScrollAnimation delay={0.4}>
+              <div className="p-5 rounded-xl border border-border/60 bg-card/60 backdrop-blur-sm card-lift">
+                <div className="flex items-start gap-4">
+                  <div className="p-2.5 rounded-lg bg-primary/10 text-primary">
+                    <Cpu className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-foreground text-sm mb-1">Technical Focus</h3>
+                    <p className="text-xs text-muted-foreground">Artificial Intelligence, ML, IoT &amp; Embedded Systems</p>
+                  </div>
+                </div>
+              </div>
+            </ScrollAnimation>
+          </div>
         </div>
-
-        {/* Bottom hairline */}
-        <div
-          className="mt-24"
-          style={{ borderTop: "1px solid rgba(10,9,8,0.1)" }}
-        />
       </div>
     </section>
   );

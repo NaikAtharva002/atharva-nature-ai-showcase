@@ -3,21 +3,58 @@
 @tailwind utilities;
 
 /*
-  ─────────────────────────────────────────
-  DESIGN SYSTEM — Atharva Naik Portfolio
+  ─────────────────────────────────────────────────────────
+  DESIGN SYSTEM — Atharva Naik Portfolio (Editorial System)
   Palette:
-    Black      #0A0908  → hsl(30 11% 4%)
-    Burgundy   #49111C  → hsl(348 62% 18%)
-    White Smoke #F2F4F3 → hsl(150 8% 95%)
-    Dusty Taupe #A9927D → hsl(29 20% 58%)
-    Stone Brown #5E503F → hsl(33 20% 31%)
-  ─────────────────────────────────────────
+    Black       #0A0908  → hsl(30 11% 4%)
+    Burgundy    #49111C  → hsl(348 62% 18%)
+    White Smoke #F2F4F3  → hsl(150 8% 95%)
+    Dusty Taupe #A9927D  → hsl(29 20% 58%)
+    Stone Brown #5E503F  → hsl(33 20% 31%)
+  ─────────────────────────────────────────────────────────
 */
 
 @layer base {
   :root {
-    /* Base surfaces — dark-first editorial look */
-    --background: 30 11% 4%;           /* #0A0908 near-black */
+    /* Default (Light Theme) */
+    --background: 150 8% 96%;           /* #F2F4F3 */
+    --foreground: 30 11% 6%;            /* #0A0908 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 30 11% 6%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 11% 6%;
+
+    --primary: 348 62% 24%;            /* #49111C rich burgundy */
+    --primary-foreground: 150 8% 98%;
+
+    --secondary: 33 15% 42%;           /* #5E503F stone */
+    --secondary-foreground: 150 8% 98%;
+
+    --muted: 30 10% 90%;
+    --muted-foreground: 33 15% 35%;    /* #5E503F taupe-stone */
+
+    --accent: 348 62% 24%;
+    --accent-foreground: 150 8% 98%;
+
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 150 8% 98%;
+
+    --border: 33 15% 82%;
+    --input: 33 15% 82%;
+    --ring: 348 62% 24%;
+
+    --radius: 0.25rem;
+
+    --surface-alt: 150 6% 92%;
+    --glass-bg: rgba(242, 244, 243, 0.85);
+    --glass-border: rgba(94, 80, 63, 0.15);
+  }
+
+  .dark {
+    /* Dark Theme */
+    --background: 30 11% 4%;            /* #0A0908 near-black */
     --foreground: 150 8% 95%;           /* #F2F4F3 white smoke */
 
     --card: 30 11% 7%;
@@ -26,62 +63,28 @@
     --popover: 30 11% 7%;
     --popover-foreground: 150 8% 95%;
 
-    /* Primary = Burgundy (accent only — use sparingly) */
-    --primary: 348 62% 18%;            /* #49111C burgundy */
+    --primary: 348 62% 22%;            /* #49111C burgundy */
     --primary-foreground: 150 8% 95%;
 
-    /* Secondary = Stone Brown */
     --secondary: 33 20% 31%;           /* #5E503F stone */
     --secondary-foreground: 150 8% 95%;
 
-    /* Muted surfaces */
     --muted: 33 20% 12%;
     --muted-foreground: 29 20% 58%;    /* #A9927D dusty taupe */
 
-    --accent: 348 62% 18%;
+    --accent: 348 62% 22%;
     --accent-foreground: 150 8% 95%;
 
     --destructive: 0 62.8% 50.6%;
     --destructive-foreground: 150 8% 95%;
 
-    /* Borders — hairlines only */
-    --border: 33 20% 20%;              /* dark stone hairline */
-    --input: 33 20% 20%;
-    --ring: 348 62% 18%;
+    --border: 33 20% 18%;
+    --input: 33 20% 18%;
+    --ring: 348 62% 22%;
 
-    /* Minimal radius — editorial style */
-    --radius: 0.125rem;
-
-    /* Custom gradient tokens (minimal, no flashy gradients) */
-    --gradient-hero: none;
-    --gradient-card: none;
-    --gradient-nature: none;
-
-    /* Shadows — soft, not decorative */
-    --shadow-soft: 0 2px 16px rgba(10, 9, 8, 0.4);
-    --shadow-card: 0 1px 0 hsl(33 20% 20%);
-    --shadow-hover: 0 8px 32px rgba(10, 9, 8, 0.5);
-
-    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-spring: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-    /* Sidebar (keep for shadcn compatibility) */
-    --sidebar-background: 30 11% 4%;
-    --sidebar-foreground: 150 8% 95%;
-    --sidebar-primary: 348 62% 18%;
-    --sidebar-primary-foreground: 150 8% 95%;
-    --sidebar-accent: 33 20% 12%;
-    --sidebar-accent-foreground: 150 8% 95%;
-    --sidebar-border: 33 20% 20%;
-    --sidebar-ring: 348 62% 18%;
-  }
-
-  /* Light surface variant — used in About / Contact sections via explicit className */
-  .light-surface {
-    --background: 150 8% 95%;
-    --foreground: 30 11% 4%;
-    --muted-foreground: 29 20% 40%;
-    --border: 33 20% 75%;
+    --surface-alt: 30 11% 9%;
+    --glass-bg: rgba(10, 9, 8, 0.85);
+    --glass-border: rgba(94, 80, 63, 0.25);
   }
 }
 
@@ -101,10 +104,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   /* Editorial serif headings */
-  h1, h2, h3 {
+  h1, h2, h3, .font-editorial {
     font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
     font-weight: 400;
     letter-spacing: -0.02em;
@@ -113,22 +117,21 @@
 
   /* Precision scrollbar */
   ::-webkit-scrollbar {
-    width: 4px;
+    width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: hsl(30 11% 4%);
+    background: hsl(var(--background));
   }
   ::-webkit-scrollbar-thumb {
-    background: hsl(33 20% 20%);
-    border-radius: 2px;
+    background: hsl(var(--border));
+    border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(348 62% 18%);
+    background: hsl(var(--primary));
   }
 }
 
 @layer utilities {
-  /* Typography utilities */
   .font-editorial {
     font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
   }
@@ -145,16 +148,25 @@
     text-transform: uppercase;
   }
 
+  /* Glassmorphism utility */
+  .glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+  }
+
   /* Hairline divider */
   .hairline {
     border-top: 1px solid hsl(var(--border));
   }
 
-  /* Hover — subtle x-shift */
-  .hover-arrow {
-    @apply transition-transform duration-200;
+  /* Hover card lift */
+  .card-lift {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
   }
-  .hover-arrow:hover {
-    @apply translate-x-1;
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.15);
   }
 }

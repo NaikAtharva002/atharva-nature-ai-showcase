@@ -1,17 +1,29 @@
+import ScrollProgress from "@/components/ScrollProgress";
 import Header from "@/components/Header";
 import About from "@/components/About";
-import WorkExperience from "@/components/WorkExperience";
+import Timeline from "@/components/Timeline";
+import Projects from "@/components/Projects";
+import SkillsSection from "@/components/SkillsSection";
+import LinkedInSection from "@/components/LinkedInSection";
+import GitHubActivity from "@/components/GitHubActivity";
+import CurrentlyBuilding from "@/components/CurrentlyBuilding";
+import Achievements from "@/components/Achievements";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import ScrollProgress from "@/components/ScrollProgress";
 
 const Index = () => {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#0A0908" }}>
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
       <ScrollProgress />
       <Header />
       <About />
-      <WorkExperience />
+      <Timeline />
+      <Projects />
+      <SkillsSection />
+      <LinkedInSection />
+      <GitHubActivity />
+      <CurrentlyBuilding />
+      <Achievements />
       <Contact />
       <Footer />
     </div>
