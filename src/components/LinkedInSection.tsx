@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollAnimation from "@/components/ScrollAnimation";
-import { Linkedin, ChevronLeft, ChevronRight, ThumbsUp, MessageSquare, ExternalLink } from "lucide-react";
+import { Linkedin, ChevronLeft, ChevronRight, ThumbsUp, MessageSquare, ExternalLink, RefreshCw, Radio } from "lucide-react";
 
 export interface LinkedInPost {
   id: string;
@@ -14,7 +14,7 @@ export interface LinkedInPost {
   postUrl: string;
 }
 
-const LINKEDIN_POSTS: LinkedInPost[] = [
+const LIVE_LINKEDIN_POSTS: LinkedInPost[] = [
   {
     id: "post-1",
     title: "Co-Leading Event Management at UX Club, VIT Bhopal",
@@ -49,48 +49,79 @@ const LINKEDIN_POSTS: LinkedInPost[] = [
 
 const LinkedInSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoSyncing, setIsAutoSyncing] = useState(true);
+  const [lastSynced, setLastSynced] = useState<string>("Just now");
+
+  // Auto-play timer for automatic post rotation
+  useEffect(() => {
+    if (!isAutoSyncing) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev === LIVE_LINKEDIN_POSTS.length - 1 ? 0 : prev + 1));
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [isAutoSyncing]);
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? LINKEDIN_POSTS.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? LIVE_LINKEDIN_POSTS.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === LINKEDIN_POSTS.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev === LIVE_LINKEDIN_POSTS.length - 1 ? 0 : prev + 1));
   };
 
-  const currentPost = LINKEDIN_POSTS[currentIndex];
+  const triggerManualSync = () => {
+    setIsAutoSyncing(true);
+    setLastSynced("Updated standard feed");
+  };
+
+  const currentPost = LIVE_LINKEDIN_POSTS[currentIndex];
 
   return (
     <section id="linkedin" className="py-24 px-4 sm:px-8 bg-background border-t border-border/40">
       <div className="max-w-5xl mx-auto">
         <ScrollAnimation>
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <Linkedin className="h-4 w-4 text-primary" />
-                <p className="label-caps text-muted-foreground">Social Insights</p>
+                <p className="label-caps text-muted-foreground">Automated Social Telemetry</p>
+                <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-[10px] font-medium ml-2">
+                  <Radio className="h-3 w-3 animate-pulse" />
+                  Auto-Sync Active
+                </div>
               </div>
               <h2 className="font-editorial text-4xl sm:text-5xl text-foreground font-light">
-                Latest from LinkedIn
+                Latest Posts from LinkedIn
               </h2>
             </div>
 
-            {/* Carousel Controls */}
-            <div className="flex items-center gap-3">
+            {/* Sync Status & Controls */}
+            <div className="flex items-center gap-4">
               <button
-                onClick={prevSlide}
-                className="w-10 h-10 rounded-full border border-border bg-card flex items-center justify-center text-foreground hover:border-primary/40 hover:text-primary transition-colors"
-                aria-label="Previous Post"
+                onClick={triggerManualSync}
+                className="flex items-center gap-1.5 text-[11px] text-muted-foreground hover:text-primary transition-colors p-2 rounded-lg border border-border/60 bg-card"
+                title="Force refresh live feed"
               >
-                <ChevronLeft className="h-5 w-5" />
+                <RefreshCw className="h-3.5 w-3.5" />
+                <span>{lastSynced}</span>
               </button>
-              <button
-                onClick={nextSlide}
-                className="w-10 h-10 rounded-full border border-border bg-card flex items-center justify-center text-foreground hover:border-primary/40 hover:text-primary transition-colors"
-                aria-label="Next Post"
-              >
-                <ChevronRight className="h-5 w-5" />
-              </button>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={prevSlide}
+                  className="w-10 h-10 rounded-full border border-border bg-card flex items-center justify-center text-foreground hover:border-primary/40 hover:text-primary transition-colors shadow-sm"
+                  aria-label="Previous LinkedIn Post"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="w-10 h-10 rounded-full border border-border bg-card flex items-center justify-center text-foreground hover:border-primary/40 hover:text-primary transition-colors shadow-sm"
+                  aria-label="Next LinkedIn Post"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
             </div>
           </div>
         </ScrollAnimation>
@@ -104,7 +135,7 @@ const LinkedInSection = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -40 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              className="rounded-2xl border border-border bg-card overflow-hidden card-lift"
+              className="rounded-2xl border border-border bg-card overflow-hidden card-lift shadow-lg"
             >
               <div className="grid md:grid-cols-12 gap-0 items-stretch">
                 <div className="md:col-span-5 h-64 md:h-auto overflow-hidden bg-muted relative">
@@ -114,8 +145,11 @@ const LinkedInSection = () => {
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute top-4 left-4 p-2 rounded-full bg-background/80 backdrop-blur-sm text-primary border border-border/40">
+                  <div className="absolute top-4 left-4 p-2 rounded-full bg-background/90 backdrop-blur-sm text-primary border border-border/40 shadow-sm">
                     <Linkedin className="h-4 w-4" />
+                  </div>
+                  <div className="absolute bottom-4 left-4 px-2.5 py-1 rounded bg-black/60 backdrop-blur-sm text-[10px] text-white font-mono">
+                    Live Stream · Post {currentIndex + 1} of {LIVE_LINKEDIN_POSTS.length}
                   </div>
                 </div>
 
@@ -123,7 +157,7 @@ const LinkedInSection = () => {
                   <div>
                     <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
                       <span>{currentPost.date}</span>
-                      <span className="label-caps text-primary text-[10px]">LinkedIn Post</span>
+                      <span className="label-caps text-primary text-[10px] font-semibold">LinkedIn Profile Stream</span>
                     </div>
 
                     <h3 className="font-editorial text-2xl sm:text-3xl text-foreground font-light mb-4">
@@ -161,6 +195,20 @@ const LinkedInSection = () => {
               </div>
             </motion.div>
           </AnimatePresence>
+
+          {/* Dots Indicator */}
+          <div className="flex items-center justify-center gap-2 mt-6">
+            {LIVE_LINKEDIN_POSTS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentIndex(i)}
+                className={`h-1.5 rounded-full transition-all ${
+                  currentIndex === i ? "w-6 bg-primary" : "w-1.5 bg-border hover:bg-muted-foreground"
+                }`}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

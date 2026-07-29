@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import { Github, GitCommit, GitFork, Star, Users, BookOpen, ExternalLink } from "lucide-react";
 
@@ -12,42 +11,66 @@ interface Repository {
 }
 
 const GITHUB_STATS = {
-  repositories: 18,
-  followers: 42,
+  repositories: 10,
+  followers: 4,
+  following: 11,
   contributionsThisYear: 384,
   username: "NaikAtharva002",
   profileUrl: "https://github.com/NaikAtharva002",
 };
 
-const RECENT_REPOS: Repository[] = [
+const REAL_REPOS: Repository[] = [
   {
     name: "atharva-nature-ai-showcase",
-    description: "Minimalist, editorial personal portfolio and AI showcase web application built with React & Vite.",
+    description: "Minimalist editorial portfolio & AI showcase built with React, Vite, TypeScript, and Tailwind CSS.",
     language: "TypeScript",
-    stars: 12,
-    forks: 3,
+    stars: 1,
+    forks: 0,
     url: "https://github.com/NaikAtharva002/atharva-nature-ai-showcase",
   },
   {
-    name: "arduino-radar-telemetry",
-    description: "Arduino ultrasonic radar scanning system with Processing GUI visualizer.",
-    language: "C++ / Processing",
-    stars: 8,
-    forks: 2,
-    url: "https://github.com/NaikAtharva002",
+    name: "vit-sky-pulse-clean",
+    description: "Real-time Weather Dashboard with live animations — VIT Bhopal Python Project.",
+    language: "Python",
+    stars: 2,
+    forks: 0,
+    url: "https://github.com/NaikAtharva002/vit-sky-pulse-clean",
   },
   {
-    name: "smart-distance-detector",
-    description: "Microcontroller automation system with distance threshold actuation.",
-    language: "C++",
-    stars: 5,
-    forks: 1,
-    url: "https://github.com/NaikAtharva002",
+    name: "kisan-shop",
+    description: "E-Commerce web platform dedicated to agricultural products for local farmers.",
+    language: "HTML",
+    stars: 1,
+    forks: 0,
+    url: "https://github.com/NaikAtharva002/kisan-shop",
+  },
+  {
+    name: "life-control-panel",
+    description: "Personal productivity, task tracking, and life control dashboard.",
+    language: "TypeScript",
+    stars: 1,
+    forks: 0,
+    url: "https://github.com/NaikAtharva002/life-control-panel",
+  },
+  {
+    name: "Weather-database-vit",
+    description: "Historical weather tracking and analytics database engine built for VIT Bhopal.",
+    language: "Python",
+    stars: 1,
+    forks: 0,
+    url: "https://github.com/NaikAtharva002/Weather-database-vit",
+  },
+  {
+    name: "dark-notes-",
+    description: "Minimalist dark editorial note taking web application.",
+    language: "TypeScript",
+    stars: 1,
+    forks: 0,
+    url: "https://github.com/NaikAtharva002/dark-notes-",
   },
 ];
 
 const GitHubActivity = () => {
-  // Generate a mock contribution heat grid (52 weeks x 7 days)
   const weeks = Array.from({ length: 36 });
 
   return (
@@ -143,10 +166,21 @@ const GitHubActivity = () => {
 
         {/* Recent Repositories Grid */}
         <div className="space-y-4">
-          <p className="text-xs label-caps text-muted-foreground">Recent Repositories</p>
+          <div className="flex items-center justify-between">
+            <p className="text-xs label-caps text-muted-foreground">Featured GitHub Repositories</p>
+            <a
+              href="https://github.com/NaikAtharva002?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs label-caps text-primary hover:underline"
+            >
+              See all 10 repositories →
+            </a>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-4">
-            {RECENT_REPOS.map((repo, i) => (
-              <ScrollAnimation key={i} delay={i * 0.1}>
+            {REAL_REPOS.map((repo, i) => (
+              <ScrollAnimation key={i} delay={i * 0.08}>
                 <a
                   href={repo.url}
                   target="_blank"

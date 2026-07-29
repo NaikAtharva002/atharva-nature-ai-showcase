@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import ScrollAnimation from "@/components/ScrollAnimation";
-import { Github, ExternalLink, Cpu, Code2, Layers, Image as ImageIcon } from "lucide-react";
+import { Github, ExternalLink, Cpu, Code2, Image as ImageIcon } from "lucide-react";
 
 interface SoftwareProject {
   title: string;
   description: string;
   image: string;
   tags: string[];
-  github?: string;
+  github: string;
   demo?: string;
 }
 
@@ -22,38 +22,57 @@ interface HardwareProject {
 
 const FEATURED_PROJECT = {
   title: "Atharva's Nature & AI Showcase",
-  category: "Featured ML & Web Architecture",
-  description: "A high-performance editorial web showcase and AI portfolio integrating interactive hardware telemetry, responsive visualization, and minimal aesthetics.",
+  category: "Featured Portfolio & AI Architecture",
+  description: "A minimalist, editorial personal portfolio and AI showcase web application built with React, TypeScript, and Vite. Designed with dark/light themes and custom telemetry.",
   image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
-  tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Machine Learning"],
+  tags: ["TypeScript", "React", "Vite", "Tailwind CSS", "Framer Motion"],
   github: "https://github.com/NaikAtharva002/atharva-nature-ai-showcase",
   demo: "https://atharva002.netlify.app",
 };
 
-const SOFTWARE_PROJECTS: SoftwareProject[] = [
+const REAL_SOFTWARE_PROJECTS: SoftwareProject[] = [
   {
-    title: "AI Variant Analysis Pipeline",
-    description: "An automated genomic variant effect interpreter predicting pathogenic impact across non-coding regions using transformer representations.",
-    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80",
-    tags: ["Python", "PyTorch", "Bioinformatics", "FastAPI"],
-    github: "https://github.com/NaikAtharva002",
-    demo: "#",
+    title: "VIT Sky Pulse — Weather Dashboard",
+    description: "Real-time weather dashboard with live animations and data telemetry built for VIT Bhopal Python project.",
+    image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=800&q=80",
+    tags: ["Python", "API Integration", "Data Visualization", "VIT Bhopal"],
+    github: "https://github.com/NaikAtharva002/vit-sky-pulse-clean",
+    demo: "https://github.com/NaikAtharva002/vit-sky-pulse-clean",
   },
   {
-    title: "UX Club Event Management Hub",
-    description: "Centralized event scheduling, registration tracking, and interactive participant feedback system engineered for campus UX initiatives.",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80",
-    tags: ["React", "Node.js", "MongoDB", "Tailwind"],
-    github: "https://github.com/NaikAtharva002",
-    demo: "#",
+    title: "Life Control Panel",
+    description: "Personal productivity, task tracking, and life management control panel application.",
+    image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=800&q=80",
+    tags: ["TypeScript", "React", "State Management", "Tailwind"],
+    github: "https://github.com/NaikAtharva002/life-control-panel",
   },
   {
-    title: "Smart Data Analytics Dashboard",
-    description: "Real-time analytics engine visualizing high-throughput sensor telemetry with custom chart components and anomaly alerts.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-    tags: ["TypeScript", "Recharts", "Express", "Tailwind"],
-    github: "https://github.com/NaikAtharva002",
-    demo: "#",
+    title: "Kisan Shop",
+    description: "E-Commerce web platform dedicated to agricultural products, empowering local farmers with digital access.",
+    image: "https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=800&q=80",
+    tags: ["HTML", "CSS", "JavaScript", "E-Commerce"],
+    github: "https://github.com/NaikAtharva002/kisan-shop",
+  },
+  {
+    title: "Dark Notes",
+    description: "Minimalist dark editorial note-taking application designed for distraction-free writing and ideas.",
+    image: "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=800&q=80",
+    tags: ["TypeScript", "React", "Local Storage", "Editorial UI"],
+    github: "https://github.com/NaikAtharva002/dark-notes-",
+  },
+  {
+    title: "Weather Database & Analytics",
+    description: "Python-based weather database engine tracking historical weather patterns and analytics.",
+    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=800&q=80",
+    tags: ["Python", "SQL", "Database Engine", "Data Science"],
+    github: "https://github.com/NaikAtharva002/Weather-database-vit",
+  },
+  {
+    title: "LearnStart Platform",
+    description: "Interactive learning and onboarding web platform for tech beginners and startup enthusiasts.",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+    tags: ["TypeScript", "Web Architecture", "UI/UX"],
+    github: "https://github.com/NaikAtharva002/learnstart",
   },
 ];
 
@@ -127,46 +146,52 @@ const Projects = () => {
                 </div>
 
                 <div className="flex items-center gap-4 pt-4 border-t border-border/40">
-                  {FEATURED_PROJECT.github && (
-                    <a
-                      href={FEATURED_PROJECT.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 rounded border border-border text-foreground hover:bg-muted text-xs uppercase tracking-wider font-medium flex items-center gap-2 transition-colors"
-                    >
-                      <Github className="h-4 w-4" />
-                      Repository
-                    </a>
-                  )}
-                  {FEATURED_PROJECT.demo && (
-                    <a
-                      href={FEATURED_PROJECT.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 rounded bg-primary text-primary-foreground text-xs uppercase tracking-wider font-medium flex items-center gap-2 hover:bg-primary/90 transition-colors shadow-md shadow-primary/20"
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                      Live Demo
-                    </a>
-                  )}
+                  <a
+                    href={FEATURED_PROJECT.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 rounded border border-border text-foreground hover:bg-muted text-xs uppercase tracking-wider font-medium flex items-center gap-2 transition-colors"
+                  >
+                    <Github className="h-4 w-4" />
+                    Repository
+                  </a>
+                  <a
+                    href={FEATURED_PROJECT.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 rounded bg-primary text-primary-foreground text-xs uppercase tracking-wider font-medium flex items-center gap-2 hover:bg-primary/90 transition-colors shadow-md shadow-primary/20"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    Live Demo
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </ScrollAnimation>
 
-        {/* ─── SOFTWARE PROJECTS GRID ─── */}
+        {/* ─── SOFTWARE PROJECTS GRID (REAL GITHUB REPOS) ─── */}
         <div className="mb-20">
           <ScrollAnimation>
-            <div className="flex items-center gap-2 mb-8">
-              <Code2 className="h-5 w-5 text-primary" />
-              <h3 className="text-2xl font-editorial text-foreground font-light">Software Engineering</h3>
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center gap-2">
+                <Code2 className="h-5 w-5 text-primary" />
+                <h3 className="text-2xl font-editorial text-foreground font-light">Open Source Projects</h3>
+              </div>
+              <a
+                href="https://github.com/NaikAtharva002?tab=repositories"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs label-caps text-primary hover:underline flex items-center gap-1"
+              >
+                View all on GitHub ({REAL_SOFTWARE_PROJECTS.length + 4}+) →
+              </a>
             </div>
           </ScrollAnimation>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {SOFTWARE_PROJECTS.map((project, index) => (
-              <ScrollAnimation key={index} delay={index * 0.1}>
+            {REAL_SOFTWARE_PROJECTS.map((project, index) => (
+              <ScrollAnimation key={index} delay={index * 0.08}>
                 <div className="h-full rounded-xl border border-border/60 bg-card overflow-hidden flex flex-col justify-between card-lift">
                   <div>
                     <div className="relative h-48 overflow-hidden bg-muted">
@@ -198,25 +223,23 @@ const Projects = () => {
                   </div>
 
                   <div className="p-6 pt-0 flex items-center justify-between border-t border-border/20 mt-auto">
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs text-muted-foreground hover:text-foreground flex items-center gap-1.5 transition-colors"
-                      >
-                        <Github className="h-3.5 w-3.5" />
-                        Code
-                      </a>
-                    )}
-                    {project.demo && project.demo !== "#" && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-muted-foreground hover:text-foreground flex items-center gap-1.5 transition-colors"
+                    >
+                      <Github className="h-3.5 w-3.5" />
+                      GitHub Repo
+                    </a>
+                    {project.demo && (
                       <a
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-xs text-primary hover:underline flex items-center gap-1.5 font-medium"
                       >
-                        Demo
+                        View Project
                         <ExternalLink className="h-3.5 w-3.5" />
                       </a>
                     )}

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import ScrollAnimation from "@/components/ScrollAnimation";
-import { GraduationCap, BookOpen, Users, Palette, Cpu, Rocket } from "lucide-react";
+import { GraduationCap, BookOpen, Users, Palette } from "lucide-react";
 
 interface TimelineItem {
   year: string;
@@ -41,21 +41,6 @@ const TIMELINE_DATA: TimelineItem[] = [
     subtitle: "UI & Experience Designer",
     description: "Crafting digital product interfaces, design systems, and seamless user experiences.",
     icon: Palette,
-  },
-  {
-    year: "Present",
-    title: "AI & Hardware Builder",
-    subtitle: "Independent Innovator",
-    description: "Engineering real-time radar systems, automated distance detectors, and experimental AI projects.",
-    icon: Cpu,
-    highlight: true,
-  },
-  {
-    year: "Beyond",
-    title: "The Future",
-    subtitle: "Next Horizon",
-    description: "Pioneering intelligent autonomous systems and human-AI interaction frameworks.",
-    icon: Rocket,
   },
 ];
 

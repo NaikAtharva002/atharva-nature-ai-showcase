@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Dark luxury metallic gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A0908" />
+      <stop offset="50%" stop-color="#1A0D14" />
+      <stop offset="100%" stop-color="#0A0908" />
+    </linearGradient>
+
+    <!-- Glowing Burgundy / Neon Coral AI Gradient -->
+    <linearGradient id="neon-burgundy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF2E55" />
+      <stop offset="40%" stop-color="#80122B" />
+      <stop offset="100%" stop-color="#49111C" />
+    </linearGradient>
+
+    <!-- Metallic Gold / Taupe Accent -->
+    <linearGradient id="gold-taupe" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#A9927D" />
+      <stop offset="50%" stop-color="#F2F4F3" />
+      <stop offset="100%" stop-color="#5E503F" />
+    </linearGradient>
+
+    <!-- Radial Core Glow Filter -->
+    <filter id="hyper-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="blur1" />
+      <feGaussianBlur stdDeviation="24" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="512" height="512" rx="128" fill="url(#bg-grad)" stroke="#49111C" stroke-width="8" />
+
+  <!-- Outer Cyber Orbital Ring -->
+  <circle cx="256" cy="256" r="190" fill="none" stroke="url(#gold-taupe)" stroke-width="3" stroke-dasharray="16 12 40 12" opacity="0.6" />
+  <circle cx="256" cy="256" r="215" fill="none" stroke="#FF2E55" stroke-width="2" stroke-dasharray="6 24" opacity="0.4" />
+
+  <!-- Core Quantum Hexagon Shield -->
+  <polygon points="256,90 395,170 395,330 256,410 117,330 117,170" fill="none" stroke="url(#neon-burgundy)" stroke-width="6" filter="url(#hyper-glow)" opacity="0.85" />
+
+  <!-- Futuristic Monogram "A" with Neural Nodes -->
+  <!-- Left Leg -->
+  <path d="M 256 125 L 150 375 H 195 L 256 225 Z" fill="url(#gold-taupe)" />
+  <!-- Right Leg -->
+  <path d="M 256 125 L 362 375 H 317 L 256 225 Z" fill="url(#neon-burgundy)" filter="url(#hyper-glow)" />
+  <!-- Crossbar Orbital Beam -->
+  <path d="M 180 310 Q 256 280 332 310 L 325 330 Q 256 300 187 330 Z" fill="url(#gold-taupe)" />
+
+  <!-- Neural AI Nodes at Apex and Base -->
+  <circle cx="256" cy="125" r="14" fill="#FF2E55" filter="url(#hyper-glow)" />
+  <circle cx="256" cy="125" r="6" fill="#FFFFFF" />
+
+  <circle cx="150" cy="375" r="10" fill="#A9927D" />
+  <circle cx="362" cy="375" r="10" fill="#FF2E55" filter="url(#hyper-glow)" />
+
+  <!-- Cyber Dot Matrix Accents -->
+  <circle cx="256" cy="256" r="5" fill="#FFFFFF" opacity="0.9" />
+  <line x1="256" y1="125" x2="256" y2="256" stroke="#FF2E55" stroke-width="2" stroke-dasharray="4 4" opacity="0.7" />
+</svg>
