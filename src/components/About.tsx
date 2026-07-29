@@ -1,121 +1,103 @@
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { ExternalLink, Linkedin, Instagram, Github } from "lucide-react";
-import ScrollAnimation from "@/components/ScrollAnimation";
 import { motion } from "framer-motion";
+import ScrollAnimation from "@/components/ScrollAnimation";
 
 const About = () => {
   return (
-    <section id="about" className="py-20 px-6 bg-background">
-      <div className="max-w-4xl mx-auto">
-        <ScrollAnimation className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">About Me</h2>
-          <div className="w-24 h-1 bg-gradient-hero mx-auto rounded-full"></div>
+    <section
+      id="about"
+      className="py-28 px-6 md:px-12"
+      style={{ backgroundColor: "#F2F4F3" }}
+    >
+      <div className="max-w-5xl mx-auto">
+
+        {/* Section label */}
+        <ScrollAnimation>
+          <p className="label-caps text-[#A9927D] mb-12">Identity</p>
         </ScrollAnimation>
-        
-        <ScrollAnimation delay={0.2}>
-          <Card className="p-8 md:p-12 shadow-card bg-gradient-card hover:shadow-hover transition-all duration-500">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
+
+        {/* Two-column editorial grid */}
+        <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
+
+          {/* Left — name + identity tags */}
+          <ScrollAnimation>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+            >
+              <h2
+                className="font-editorial text-[#0A0908] mb-8"
+                style={{ fontSize: "clamp(2.2rem, 5vw, 3.6rem)", fontWeight: 300, lineHeight: 1.05 }}
               >
-                <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                  I am a B.Tech student at VIT Bhopal specializing in Computer Science with a focus on 
-                  Artificial Intelligence and Machine Learning. Passionate about emerging technologies, 
-                  hackathons, and building innovative solutions that can make a positive impact on the world.
-                </p>
-                
-                <div className="flex flex-wrap gap-4">
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button 
-                      variant="outline" 
-                      className="flex items-center gap-2 hover:bg-primary hover:text-primary-foreground transition-all group"
-                      onClick={() => window.open('https://www.linkedin.com/in/atharva-naik-', '_blank')}
-                    >
-                      <Linkedin className="h-4 w-4 group-hover:scale-110 transition-transform" />
-                      LinkedIn
-                      <ExternalLink className="h-3 w-3" />
-                    </Button>
-                  </motion.div>
-                  
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button 
-                      variant="outline" 
-                      className="flex items-center gap-2 hover:bg-primary hover:text-primary-foreground transition-all group"
-                      onClick={() => window.open('https://github.com/NaikAtharva002', '_blank')}
-                    >
-                      <Github className="h-4 w-4 group-hover:scale-110 transition-transform" />
-                      GitHub
-                      <ExternalLink className="h-3 w-3" />
-                    </Button>
-                  </motion.div>
-                  
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button 
-                      variant="outline" 
-                      className="flex items-center gap-2 hover:bg-primary hover:text-primary-foreground transition-all group"
-                      onClick={() => {
-                        const link = document.createElement('a');
-                        link.href = 'https://www.instagram.com/atharvadhanraj?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==';
-                        link.target = '_blank';
-                        link.rel = 'noopener noreferrer';
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-                      }}
-                    >
-                      <Instagram className="h-4 w-4 group-hover:scale-110 transition-transform" />
-                      Instagram
-                      <ExternalLink className="h-3 w-3" />
-                    </Button>
-                  </motion.div>
+                Atharva<br />Naik
+              </h2>
+
+              {/* Education metadata */}
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <span
+                    className="px-3 py-1 text-[#0A0908] label-caps"
+                    style={{ border: "1px solid rgba(10,9,8,0.15)", fontSize: "0.6rem" }}
+                  >
+                    VIT Bhopal University
+                  </span>
                 </div>
-              </motion.div>
-              
-              <motion.div 
-                className="space-y-6"
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
+                <div className="flex items-center gap-3">
+                  <span
+                    className="px-3 py-1 text-[#5E503F] label-caps"
+                    style={{ border: "1px solid rgba(94,80,63,0.3)", fontSize: "0.6rem" }}
+                  >
+                    B.Tech · Computer Science
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span
+                    className="px-3 py-1 text-[#49111C] label-caps"
+                    style={{ border: "1px solid rgba(73,17,28,0.3)", fontSize: "0.6rem" }}
+                  >
+                    AI &amp; Machine Learning
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          </ScrollAnimation>
+
+          {/* Right — bio paragraph */}
+          <ScrollAnimation delay={0.15}>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+            >
+              <p
+                className="text-[#0A0908] leading-relaxed mb-6"
+                style={{ fontFamily: "'Inter', sans-serif", fontSize: "1.05rem", fontWeight: 300, lineHeight: 1.75 }}
               >
-                <motion.div 
-                  className="bg-muted/50 p-6 rounded-lg hover:bg-muted/70 transition-colors"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <h3 className="text-xl font-semibold text-foreground mb-2">Education</h3>
-                  <p className="text-muted-foreground">B.Tech in Computer Science</p>
-                  <p className="text-sm text-muted-foreground">VIT Bhopal</p>
-                </motion.div>
-                
-                <motion.div 
-                  className="bg-muted/50 p-6 rounded-lg hover:bg-muted/70 transition-colors"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <h3 className="text-xl font-semibold text-foreground mb-2">Focus Areas</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {['AI & ML', 'IoT', 'Innovation'].map((tag, index) => (
-                      <motion.span
-                        key={tag}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.7 + index * 0.1 }}
-                        whileHover={{ scale: 1.1 }}
-                        className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm cursor-default"
-                      >
-                        {tag}
-                      </motion.span>
-                    ))}
-                  </div>
-                </motion.div>
-              </motion.div>
-            </div>
-          </Card>
-        </ScrollAnimation>
+                I'm a Computer Science student at VIT Bhopal, specialising in Artificial
+                Intelligence and Machine Learning. Outside the classroom, I lead event
+                management at UX Club — coordinating design workshops, competitions, and
+                community initiatives that bridge technology and human experience.
+              </p>
+
+              <p
+                className="text-[#5E503F] leading-relaxed"
+                style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", fontWeight: 300, lineHeight: 1.7 }}
+              >
+                I'm drawn to the intersection of systems and people — building things that
+                are useful, intentional, and a little bit beautiful.
+              </p>
+            </motion.div>
+          </ScrollAnimation>
+
+        </div>
+
+        {/* Bottom hairline */}
+        <div
+          className="mt-24"
+          style={{ borderTop: "1px solid rgba(10,9,8,0.1)" }}
+        />
       </div>
     </section>
   );

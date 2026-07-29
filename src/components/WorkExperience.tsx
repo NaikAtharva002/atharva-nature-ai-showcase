@@ -1,118 +1,143 @@
 import { motion } from "framer-motion";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Calendar, CheckCircle, MapPin } from "lucide-react";
 import ScrollAnimation from "./ScrollAnimation";
-import companyIcon from "@/assets/company-icon.webp";
-import uxClubLogo from "@/assets/ux-club-logo.jpg";
 
+/* ─── Experience data ────────────────────────── */
+const EXPERIENCES = [
+  {
+    org: "UX Club",
+    orgMeta: "Full-time · On-site · Bhopal, MP",
+    roles: [
+      {
+        title: "Co-Lead, Event Management",
+        period: "May 2026 — Present",
+        desc: "Leading the event management vertical — scoping and executing design-focused events, workshops, and community initiatives across campus.",
+      },
+      {
+        title: "Core Member, Event Management",
+        period: "Jul 2025 — Jun 2026",
+        desc: "Coordinated design workshops and UX learning events, fostering community engagement and cross-functional collaboration within the club.",
+      },
+    ],
+  },
+  {
+    org: "Study Together",
+    orgMeta: "IT Helper · Freelance",
+    roles: [
+      {
+        title: "IT Helper",
+        period: "Nov 2024 — Sep 2025",
+        desc: "Provided technical assistance to a diverse user base — resolving server queries, hardware issues, and network configurations with high user satisfaction.",
+      },
+    ],
+  },
+];
+
+/* ─── Component ──────────────────────────────── */
 const WorkExperience = () => {
-  const experiences = [
-    {
-      company: "UX Club",
-      title: "Core Member At Event Management",
-      type: "Full-time",
-      period: "Sep 2025 - Present",
-      location: "Bhopal · On-site",
-      logo: uxClubLogo,
-      accomplishments: "Serving as a Core Member in the Event Management Team, organizing and coordinating design-focused events, workshops, and initiatives to foster UX learning and community engagement."
-    },
-    {
-      company: "Study Together",
-      title: "IT HELPER",
-      duration: "11 months",
-      period: "November 2023 - September 2024",
-      logo: companyIcon,
-      accomplishments: "Provided timely and empathetic technical assistance to a diverse user base, successfully resolving a wide range of server-related queries and maintaining a high level of user satisfaction."
-    }
-  ];
-
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-background via-background to-muted/30">
-      <div className="container mx-auto max-w-6xl">
+    <section
+      id="experience"
+      className="py-28 px-6 md:px-12"
+      style={{ backgroundColor: "#0A0908" }}
+    >
+      <div className="max-w-5xl mx-auto">
+
+        {/* Section label */}
         <ScrollAnimation>
-          <div className="text-center mb-16">
-            <motion.h2 
-              className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text text-transparent"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              Work Experience
-            </motion.h2>
-            <motion.p 
-              className="text-muted-foreground text-lg max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              Professional journey and key accomplishments in the tech industry
-            </motion.p>
-          </div>
+          <p className="label-caps text-[#A9927D] mb-12">Experience</p>
         </ScrollAnimation>
 
-        <div className="max-w-4xl mx-auto space-y-6">
-          {experiences.map((experience, index) => (
-            <ScrollAnimation key={index}>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
-              >
-                <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/20 bg-card/50 backdrop-blur-sm">
-                  <CardHeader className="pb-4">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                          <img src={experience.logo} alt={experience.company} className="w-6 h-6 object-contain" />
-                        </div>
-                        <div>
-                          <CardTitle className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
-                            {experience.title}
-                          </CardTitle>
-                          <CardDescription className="text-lg font-semibold text-muted-foreground">
-                            {experience.company} {experience.type && `· ${experience.type}`}
-                          </CardDescription>
-                        </div>
-                      </div>
-                      
-                      <div className="flex flex-col sm:flex-row gap-2">
-                        {experience.duration && (
-                          <Badge variant="secondary" className="flex items-center gap-1 px-3 py-1">
-                            <Calendar className="w-3 h-3" />
-                            {experience.duration}
-                          </Badge>
-                        )}
-                        <Badge variant="outline" className="px-3 py-1 text-xs">
-                          {experience.period}
-                        </Badge>
-                        {experience.location && (
-                          <Badge variant="outline" className="flex items-center gap-1 px-3 py-1 text-xs">
-                            <MapPin className="w-3 h-3" />
-                            {experience.location}
-                          </Badge>
-                        )}
-                      </div>
-                    </div>
-                  </CardHeader>
+        {/* Heading */}
+        <ScrollAnimation delay={0.05}>
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="font-editorial text-[#F2F4F3] mb-16"
+            style={{ fontSize: "clamp(2rem, 4.5vw, 3rem)", fontWeight: 300 }}
+          >
+            Work
+          </motion.h2>
+        </ScrollAnimation>
 
-                  <CardContent className="pt-0">
-                    <div className="flex items-start gap-3">
-                      <div className="p-1 rounded-full bg-green-500/10 mt-1 flex-shrink-0">
-                        <CheckCircle className="w-4 h-4 text-green-500" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-2">Key Accomplishments</h4>
-                        <p className="text-muted-foreground leading-relaxed">
-                          {experience.accomplishments}
+        {/* Timeline */}
+        <div className="relative">
+          {/* Vertical line */}
+          <div
+            className="absolute left-[7px] top-2 bottom-2 w-[1px]"
+            style={{ backgroundColor: "rgba(94,80,63,0.25)" }}
+          />
+
+          <div className="space-y-16 pl-10">
+            {EXPERIENCES.map((exp, expIdx) => (
+              <ScrollAnimation key={expIdx} delay={expIdx * 0.1}>
+                <motion.div
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: expIdx * 0.1 }}
+                  className="relative"
+                >
+                  {/* Dot marker */}
+                  <div
+                    className="absolute -left-[43px] top-[6px] w-[15px] h-[15px] rounded-full"
+                    style={{ backgroundColor: "#49111C", border: "2px solid rgba(10,9,8,0.8)" }}
+                  />
+
+                  {/* Org name */}
+                  <div className="mb-6">
+                    <h3
+                      className="font-editorial text-[#F2F4F3] mb-1"
+                      style={{ fontSize: "1.4rem", fontWeight: 400 }}
+                    >
+                      {exp.org}
+                    </h3>
+                    <p className="label-caps text-[#5E503F]" style={{ fontSize: "0.6rem" }}>
+                      {exp.orgMeta}
+                    </p>
+                  </div>
+
+                  {/* Roles */}
+                  <div className="space-y-8">
+                    {exp.roles.map((role, roleIdx) => (
+                      <div
+                        key={roleIdx}
+                        className="pl-5"
+                        style={{ borderLeft: "1px solid rgba(73,17,28,0.3)" }}
+                      >
+                        <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+                          <p
+                            className="text-[#F2F4F3] font-light"
+                            style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.95rem" }}
+                          >
+                            {role.title}
+                          </p>
+                          <p className="label-caps text-[#A9927D]" style={{ fontSize: "0.58rem" }}>
+                            {role.period}
+                          </p>
+                        </div>
+                        <p
+                          className="text-[#A9927D] leading-relaxed"
+                          style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.875rem", fontWeight: 300, lineHeight: 1.65 }}
+                        >
+                          {role.desc}
                         </p>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </ScrollAnimation>
-          ))}
+                    ))}
+                  </div>
+
+                  {/* Separator (not after last item) */}
+                  {expIdx < EXPERIENCES.length - 1 && (
+                    <div
+                      className="mt-14"
+                      style={{ borderTop: "1px solid rgba(94,80,63,0.15)" }}
+                    />
+                  )}
+                </motion.div>
+              </ScrollAnimation>
+            ))}
+          </div>
         </div>
       </div>
     </section>
