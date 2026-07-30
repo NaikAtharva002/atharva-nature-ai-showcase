@@ -71,8 +71,6 @@ const REAL_REPOS: Repository[] = [
 ];
 
 const GitHubActivity = () => {
-  const weeks = Array.from({ length: 36 });
-
   return (
     <section id="github" className="py-24 px-4 sm:px-8 bg-muted/20 border-t border-border/40">
       <div className="max-w-5xl mx-auto">
@@ -127,44 +125,7 @@ const GitHubActivity = () => {
           </ScrollAnimation>
         </div>
 
-        {/* Contribution Graph Visualization Container */}
-        <ScrollAnimation delay={0.2}>
-          <div className="p-6 rounded-xl border border-border/60 bg-card/60 backdrop-blur-sm mb-12">
-            <div className="flex items-center justify-between mb-4">
-              <p className="text-xs font-medium text-foreground">Contribution Heatmap</p>
-              <span className="text-[10px] label-caps text-muted-foreground">Last 12 Months</span>
-            </div>
-
-            {/* Grid of contribution squares */}
-            <div className="overflow-x-auto pb-2">
-              <div className="flex gap-1.5 min-w-[600px] justify-between">
-                {weeks.map((_, wIdx) => (
-                  <div key={wIdx} className="flex flex-col gap-1.5">
-                    {Array.from({ length: 7 }).map((_, dIdx) => {
-                      const level = (wIdx + dIdx) % 5;
-                      const bgClasses = [
-                        "bg-muted/40",
-                        "bg-primary/20",
-                        "bg-primary/40",
-                        "bg-primary/70",
-                        "bg-primary",
-                      ];
-                      return (
-                        <div
-                          key={dIdx}
-                          className={`w-3 h-3 rounded-sm ${bgClasses[level]} transition-colors hover:scale-125`}
-                          title={`Contributions on week ${wIdx + 1}, day ${dIdx + 1}`}
-                        />
-                      );
-                    })}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </ScrollAnimation>
-
-        {/* Recent Repositories Grid */}
+        {/* Featured Repositories Grid */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <p className="text-xs label-caps text-muted-foreground">Featured GitHub Repositories</p>

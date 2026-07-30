@@ -3,20 +3,18 @@ import ScrollAnimation from "@/components/ScrollAnimation";
 import { GraduationCap, BookOpen, Users, Palette } from "lucide-react";
 
 interface TimelineItem {
-  year: string;
+  year?: string;
   title: string;
   subtitle: string;
-  description: string;
+  description?: string;
   icon: any;
   highlight?: boolean;
 }
 
 const TIMELINE_DATA: TimelineItem[] = [
   {
-    year: "2020 – 2022",
-    title: "Schooling & Foundations",
+    title: "Lord Ganesha English School",
     subtitle: "Higher Secondary Education",
-    description: "Built strong foundations in mathematics, computer science fundamentals, and physical sciences.",
     icon: GraduationCap,
   },
   {
@@ -84,25 +82,31 @@ const Timeline = () => {
                             : "border-border/60 bg-card/60"
                         } card-lift`}
                       >
-                        <div className="flex items-center justify-between gap-2 mb-2">
-                          <span className="label-caps text-primary text-[0.65rem] font-semibold">
-                            {item.year}
-                          </span>
-                          {item.highlight && (
-                            <span className="px-2 py-0.5 rounded text-[10px] uppercase tracking-wider bg-primary/10 text-primary font-medium">
-                              Active / Key
-                            </span>
-                          )}
-                        </div>
+                        {(item.year || item.highlight) && (
+                          <div className="flex items-center justify-between gap-2 mb-2">
+                            {item.year ? (
+                              <span className="label-caps text-primary text-[0.65rem] font-semibold">
+                                {item.year}
+                              </span>
+                            ) : <span />}
+                            {item.highlight && (
+                              <span className="px-2 py-0.5 rounded text-[10px] uppercase tracking-wider bg-primary/10 text-primary font-medium">
+                                Active / Key
+                              </span>
+                            )}
+                          </div>
+                        )}
                         <h3 className="text-lg font-medium text-foreground mb-0.5">
                           {item.title}
                         </h3>
-                        <p className="text-xs text-muted-foreground font-light mb-3">
+                        <p className="text-xs text-muted-foreground font-light mb-1">
                           {item.subtitle}
                         </p>
-                        <p className="text-xs text-muted-foreground leading-relaxed">
-                          {item.description}
-                        </p>
+                        {item.description && (
+                          <p className="text-xs text-muted-foreground leading-relaxed mt-2">
+                            {item.description}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>
