@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import ScrollAnimation from "@/components/ScrollAnimation";
-import { Award, Trophy, Users, Code, Sparkles, CheckCircle2 } from "lucide-react";
+import { Award, Trophy, Users, CheckCircle2 } from "lucide-react";
 
 interface Achievement {
   title: string;
@@ -21,28 +21,12 @@ const ACHIEVEMENTS: Achievement[] = [
     metric: "1000+ Participants",
   },
   {
-    title: "Dawn of Code Hackathon",
-    category: "Hackathons",
-    date: "24-Hour Intensive",
-    description: "Participated in competitive programming and innovative algorithmic prototyping challenge.",
-    icon: Trophy,
-    metric: "Top Contender",
-  },
-  {
     title: "IoT & Systems Certification",
     category: "Certificates",
     date: "MKCL Certified",
     description: "Certified in Internet of Things (IoT) hardware programming, sensor integration, and networking.",
     icon: Award,
     metric: "Hardware Specialization",
-  },
-  {
-    title: "Amazon Q Code & Play Event",
-    category: "Events",
-    date: "AWS / Amazon",
-    description: "Hands-on participation in AI-assisted developer tools and generative coding workflows.",
-    icon: Sparkles,
-    metric: "AI Developer Track",
   },
 ];
 
